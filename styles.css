@@ -1,115 +1,123 @@
+/* Global Styles */
 * {
-    font-family: Arial, Helvetica, sans-serif;   
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
-html {
+html, body {
     height: 100%;
+    margin: 0;
     background-color: rgb(255, 247, 235);
+    display: flex;
+    flex-direction: column;
 }
 
+/* Navbar */
 .navbar {
-    list-style-type: none;
-    margin: 0px;
-    padding: 0;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     background-color: rgb(192, 246, 228);
-}
-
-.navbar li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .navbar li {
-    float: left;
+    flex: 1 1 auto;
     border-right: 1px solid #828282;
+    text-align: center;
 }
 
-nav li a:hover {
-    background-color: #00ddff;
-}
-
-#last {
-    float: right;
+.navbar li:last-child {
     border-right: none;
     border-left: 1px solid #828282;
 }
 
-.icon {
-    height: 40px;
-    vertical-align: text-bottom;
+.navbar li a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: black;
 }
 
-body{
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.navbar li a:hover {
+    background-color: #00ddff;
 }
 
 .active {
     background-color: #00ffc8;
 }
 
-/* Contact card */
-.card {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    transition: 0.3s;
-    justify-content: center;
+.icon {
+    height: 40px;
+    vertical-align: middle;
+}
+
+/* Contact Section */
+#contact {
+    flex: 1;
     display: flex;
-    width: 30%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.card {
+    display: flex;
     flex-direction: column;
     background-color: rgb(255, 236, 207);
     border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px;
 }
-
 
 .card:hover {
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
-
-.card_text {
-    padding: 2px 16px;
-}
-
-.card_text a {
-    color: rgb(135, 31, 31);
-}
-
 
 #card_photo {
     width: 100%;
     border-radius: 6px 6px 0 0;
 }
 
-#contact {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+.card_text {
+    padding: 10px 16px;
+}
+
+.card_text a {
+    color: rgb(135, 31, 31);
+    word-break: break-word;
 }
 
 .icon-linkedin {
     text-decoration: none;
 }
 
-/* Text pages */
-
+/* Text Pages */
 .page_body {
-    padding: 0px 60px;
+    padding: 20px;
     font-size: 18px;
-    /* height: 100%; */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page_body h3, .page_body h4 {
+    margin: 5px 0;
 }
 
 #about_photo {
-    float: left;
-    width: 400px;
-    height: 400px;
-    margin: 30px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     border-radius: 25px;
+    margin: 20px auto;
+    display: block;
 }
 
 .page_text {
@@ -122,9 +130,9 @@ body{
 }
 
 #aws {
-    display: inline-block;
     width: 150px;
     height: 150px;
+    display: inline-block;
 }
 
 hr {
@@ -133,14 +141,12 @@ hr {
     margin-top: 0px;
 }
 
-.page_body h3 , .page_body h4{
-    margin: 5px;
-}
-
 #pdf_embed {
-    width: 70%;
+    width: 100%;
+    max-width: 800px;
     height: 600px;
-    margin-bottom: 10px;
+    margin: 10px auto;
+    display: block;
 }
 
 a h4 {
@@ -163,8 +169,60 @@ h2 {
 }
 
 #home_pic {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     border-radius: 20px;
-    float: left;
-    margin-right: 10px;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        border: none;
+        border-bottom: 1px solid #828282;
+    }
+
+    .navbar li:last-child {
+        border-left: none;
+        border-bottom: none;
+    }
+
+    .page_body {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    #pdf_embed {
+        height: 400px;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar li a {
+        padding: 12px;
+    }
+
+    .page_body {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #about_photo {
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    #pdf_embed {
+        height: 300px;
+    }
 }
